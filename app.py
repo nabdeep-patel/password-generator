@@ -1,7 +1,6 @@
 import streamlit as st
 import secrets
 import string
-import pyperclip
 
 def generate_password(length):
     alphabet = string.ascii_letters + string.digits + string.punctuation
@@ -16,5 +15,5 @@ if st.button("Generate Password"):
     password = generate_password(length)
     st.write("Generated Password:", password)
     if st.button("Copy Password"):
-        pyperclip.copy(password)
+        st.text_area("Copied Password", value=password, height=1)
         st.success("Password copied to clipboard!")

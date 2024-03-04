@@ -15,5 +15,19 @@ if st.button("Generate Password"):
     password = generate_password(length)
     st.write("Generated Password:", password)
     if st.button("Copy Password"):
-        st.text_area("Copied Password", value=password, height=1)
-        st.success("Password copied to clipboard!")
+        st.write("Copy the password below:")
+        st.text_area("Copied Password", value=password, height=1, key="password")
+        st.write(
+            """
+            <button onclick="copyToClipboard()">Copy Password</button>
+            <script>
+                function copyToClipboard() {
+                    const textarea = document.getElementById('password');
+                    textarea.select();
+                    document.execCommand('copy');
+                    alert('Password copied to clipboard!');
+                }
+            </script>
+            """,
+            unsafe_allow_html=True
+        )

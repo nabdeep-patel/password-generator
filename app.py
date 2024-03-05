@@ -9,7 +9,7 @@ def generate_password(length):
 
 st.title("Password Generator")
 
-length = st.slider("Select password length:", min_value=8, max_value=32, value=12, step=1)
+length = st.slider("Select password length:", min_value=8, max_value=100, value=12, step=1)
 
 if st.button("Generate Password"):
     password = generate_password(length)
